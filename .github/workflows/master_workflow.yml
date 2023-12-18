@@ -16,6 +16,10 @@ jobs:
         distribution: 'temurin'
         java-version: '8'
         cache: 'gradle'
+    - name: "print java info"
+      run: env | grep JAVA_HOME
+    - name: "show java directory"
+      run: ls -al /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/8.0.392-8/x64
     - uses: actions/setup-node@v3
       with:
         node-version: '16'
