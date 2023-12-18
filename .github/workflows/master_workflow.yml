@@ -6,6 +6,8 @@ on: push
 name: Jenkins single-shot master
 jobs:
   jenkinsfile-runner-prepackaged:
+    env:
+      INPUT_PLUGINSTXT: '/usr/share/jenkins/ref/plugins'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
