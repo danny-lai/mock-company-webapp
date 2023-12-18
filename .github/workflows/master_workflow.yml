@@ -1,15 +1,23 @@
-  # - name: Jenkinsfile Runner Prepackaged
-  # You may pin to the exact commit or the version.
-  # uses: jenkinsci/jenkinsfile-runner-github-actions@28b21582b55af29ca1e76329b0a48aa3843c5df4
-  #uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
+# - name: Jenkinsfile Runner Prepackaged
+# You may pin to the exact commit or the version.
+# uses: jenkinsci/jenkinsfile-runner-github-actions@28b21582b55af29ca1e76329b0a48aa3843c5df4
+#uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
 on: push
 name: Jenkins single-shot master
 jobs:
   jenkinsfile-runner-prepackaged:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '8'
+        cache: 'gradle'
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16'
     - uses: actions/checkout@master
     - name: jenkinsfile-runner-prepackaged
       uses: jenkinsci/jenkinsfile-runner-github-actions/jenkinsfile-runner-prepackaged@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # env:
+      #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
