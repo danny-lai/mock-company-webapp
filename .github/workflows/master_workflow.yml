@@ -37,13 +37,15 @@ jobs:
     # - name: "print plugins path 2"
     #   run: echo ${{ github.action.path }}"/plugins.txt"
 
-    - name : Setup Jenkins
-      uses: jenkinsci/jfr-runtime-action@master
-    # - uses: jenkinsci/jfr-setup-action@master
-    #   with:
-    #     # jenkins-version: 2.346.4
-    #     jenkins-version: 2.346.1
+    # - name : Setup Jenkins
+    #   uses: jenkinsci/jfr-runtime-action@master
 
+    - uses: jenkinsci/jfr-setup-action@master
+      with:
+        # jenkins-version: 2.346.4
+        jenkins-version: 2.346.1
+        jenkins-pm-version: 2.5.0
+        
     - uses: jenkinsci/jfr-plugin-installation-action@master
       with:
         pluginstxt: plugins.txt
