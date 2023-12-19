@@ -22,8 +22,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 /* java.util package provides useful utilities */
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * This class is the entrypoint for the /api/products/search API.  It is "annotated" with
@@ -60,6 +63,8 @@ public class SearchController {
     @GetMapping("/api/products/search")
     public Collection<ProductItem> search(@RequestParam("query") String query) {
         // Implementation of method was moved to service, delegate query to the service now
-        return this.searchService.search(query);
+        //return this.searchService.search(query);
+        List<ProductItem> itemList = new ArrayList<>();
+        return itemList;
     }
 }
