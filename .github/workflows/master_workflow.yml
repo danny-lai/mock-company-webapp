@@ -3,7 +3,7 @@
 # uses: jenkinsci/jenkinsfile-runner-github-actions@28b21582b55af29ca1e76329b0a48aa3843c5df4
 #uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
 on: push
-name: Jenkins single-shot master
+name: Jenkins file runner
 jobs:
   jenkinsfile-runner-prepackaged:
     env:
@@ -23,8 +23,16 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '16'
-    - name: jenkinsfile-runner-prepackaged
-      uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
+    - uses: jenkinsci/jfr-setup-action@master
+    - uses: jenkinsci/jfr-plugin-installation-action@master
+      with:
+        pluginstxt: plugins.txt
+    - uses: jenkinsci/jfr-runtime-action@master
+      with:
+        command: run
+        jenkinsfile: Jenkinsfile
+    #- name: jenkinsfile-runner-prepackaged
+    #  uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
       # uses: jenkinsci/jenkinsfile-runner-github-actions/jenkinsfile-runner-prepackaged@master
       # env:
       #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
