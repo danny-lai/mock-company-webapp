@@ -10,15 +10,15 @@ pipeline {
     // }
     stage('Build') {
       steps {
-        sh 'node -v'
-        sh 'javac -version'
+        // sh 'node -v'
+        // sh 'javac -version'
         sh './gradlew assemble'
       }
     }
     stage('Test') {
       steps {
-        sh 'node -v'
-        sh 'javac -version'
+        // sh 'node -v'
+        // sh 'javac -version'
         sh './gradlew test'
       }
     }
