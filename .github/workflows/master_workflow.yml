@@ -57,9 +57,9 @@ jobs:
       run: env | grep JAVA_HOME
 
     - name: "run Jenkinsfile"
-      env:
-        JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/8.0.392-8/x64
-        JAVA_HOME_8_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/8.0.392-8/x64
+      # env:
+      #   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/8.0.392-8/x64
+      #   JAVA_HOME_8_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/8.0.392-8/x64
       uses: jenkinsci/jfr-runtime-action@master
       with:
         command: run

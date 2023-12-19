@@ -12,14 +12,25 @@ pipeline {
       steps {
         // sh 'node -v'
         // sh 'javac -version'
-        sh './gradlew assemble'
+        echo "pipeline build"
+        echo "JAVA_HOME = $JAVA_HOME"
+        echo "JAVA_HOME_8_X64 = $JAVA_HOME_8_X64"
+        def JAVA_HOME = "$JAVA_HOME_8_X64"
+        // sh './gradlew assemble'
+        sh """
+          JAVA_HOME=${env.JAVA_HOME_8_X64} ./gradlew assemble
+        """
       }
     }
     stage('Test') {
       steps {
         // sh 'node -v'
         // sh 'javac -version'
-        sh './gradlew test'
+        echo "pipeline run tests..."
+        // sh './gradlew test'
+        sh """
+          JAVA_HOME=${env.JAVA_HOME_8_X64} ./gradlew test
+        """
       }
     }
    }
