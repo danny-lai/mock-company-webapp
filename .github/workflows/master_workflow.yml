@@ -24,6 +24,8 @@ jobs:
       with:
         node-version: '16'
     - uses: jenkinsci/jfr-setup-action@master
+      with:
+        jenkins-version: 2.346.4
     - uses: jenkinsci/jfr-plugin-installation-action@master
       with:
         pluginstxt: plugins.txt
