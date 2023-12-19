@@ -24,14 +24,26 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '16'
-    - name: "print plugins path"
-      run: echo "$GITHUB_ACTION_PATH/plugins.txt"
-    - name: "print plugins.txt"
-      run: cat "$GITHUB_ACTION_PATH/plugins.txt"
-    - uses: jenkinsci/jfr-setup-action@master
-      with:
-        # jenkins-version: 2.346.4
-        jenkins-version: 2.346.1
+
+    # - name: "print github action 1"
+    #   run: echo "$GITHUB_ACTION"
+
+    # - name: "print github action 2"
+    #   run: echo ${{ github.action }}
+
+    # - name: "print plugins path 1"
+    #   run: echo "$GITHUB_ACTION_PATH/plugins.txt"
+
+    # - name: "print plugins path 2"
+    #   run: echo ${{ github.action.path }}"/plugins.txt"
+
+    - name : Setup Jenkins
+      uses: jenkinsci/jfr-runtime-action@master
+    # - uses: jenkinsci/jfr-setup-action@master
+    #   with:
+    #     # jenkins-version: 2.346.4
+    #     jenkins-version: 2.346.1
+
     - uses: jenkinsci/jfr-plugin-installation-action@master
       with:
         pluginstxt: plugins.txt
