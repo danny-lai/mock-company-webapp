@@ -42,7 +42,8 @@ jobs:
 
     - uses: jenkinsci/jfr-setup-action@master
       with:
-        jenkins-version: 2.361.4
+        jenkins-version: 2.387.3
+        # jenkins-version: 2.361.4
         # jenkins-version: 2.346.1
         # jenkins-pm-version: 2.5.0
 
