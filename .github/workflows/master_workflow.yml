@@ -20,21 +20,22 @@ jobs:
     #   run: env | grep JAVA_HOME
     # - name: "show java directory"
     #   run: ls -al /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/8.0.392-8/x64
-    - uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-    - uses: jenkinsci/jfr-setup-action@master
-      # with:
-      #   jenkins-version: 2.346.4
-    - uses: jenkinsci/jfr-plugin-installation-action@master
-      with:
-        pluginstxt: plugins.txt
-    - uses: jenkinsci/jfr-runtime-action@master
-      with:
-        command: run
-        jenkinsfile: Jenkinsfile
-    #- name: jenkinsfile-runner-prepackaged
-    #  uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
+
+    # - uses: actions/setup-node@v3
+    #   with:
+    #     node-version: '16'
+    # - uses: jenkinsci/jfr-setup-action@master
+    #   # with:
+    #   #   jenkins-version: 2.346.4
+    # - uses: jenkinsci/jfr-plugin-installation-action@master
+    #   with:
+    #     pluginstxt: plugins.txt
+    # - uses: jenkinsci/jfr-runtime-action@master
+    #   with:
+    #     command: run
+    #     jenkinsfile: Jenkinsfile
+    - name: jenkinsfile-runner-prepackaged
+      uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
       # uses: jenkinsci/jenkinsfile-runner-github-actions/jenkinsfile-runner-prepackaged@master
       # env:
       #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
