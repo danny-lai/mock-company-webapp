@@ -4,9 +4,9 @@ pipeline {
    *   See documentation: https://www.jenkins.io/doc/book/pipeline/syntax/#stages
    */
    agent any
-   tools {
-    nodejs '1.6.1'
-   }
+  //  tools {
+  //   nodejs '1.6.1'
+  //  }
    stages {
     // stage ('checkoutSource') {
     //     sh "cp -r /github/workspace/* $WORKSPACE"
