@@ -12,20 +12,20 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '8'
-        cache: 'gradle'
+    # - uses: actions/setup-java@v4
+    #   with:
+    #     distribution: 'temurin'
+    #     java-version: '8'
+    #     cache: 'gradle'
 
-    - name: "print java info"
-      run: env | grep JAVA_HOME
-    - name: "show java directory"
-      run: ls -lL /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/8.0.392-8/x64
+    # - name: "print java info"
+    #   run: env | grep JAVA_HOME
+    # - name: "show java directory"
+    #   run: ls -lL /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/8.0.392-8/x64
 
-    - uses: actions/setup-node@v3
-      with:
-        node-version: '16'
+    # - uses: actions/setup-node@v3
+    #   with:
+    #     node-version: '16'
 
     # - name: "print github action 1"
     #   run: echo "$GITHUB_ACTION"
@@ -42,31 +42,30 @@ jobs:
     # - name : Setup Jenkins
     #   uses: jenkinsci/jfr-runtime-action@master
 
-    - uses: jenkinsci/jfr-setup-action@master
-      with:
-        jenkins-version: 2.387.3
-        # jenkins-version: 2.361.4
-        # jenkins-version: 2.346.1
-        # jenkins-pm-version: 2.5.0
 
-    - uses: jenkinsci/jfr-plugin-installation-action@master
-      with:
-        pluginstxt: plugins.txt
+    # - uses: jenkinsci/jfr-setup-action@master
+    #   with:
+    #     jenkins-version: 2.387.3
+    #     # jenkins-version: 2.361.4
+    #     # jenkins-version: 2.346.1
+    #     # jenkins-pm-version: 2.5.0
 
-    - name: "print java info"
-      run: env | grep JAVA_HOME
+    # - uses: jenkinsci/jfr-plugin-installation-action@master
+    #   with:
+    #     pluginstxt: plugins.txt
 
-    - name: "run Jenkinsfile"
-      # env:
-      #   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/8.0.392-8/x64
-      #   JAVA_HOME_8_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/8.0.392-8/x64
-      uses: jenkinsci/jfr-runtime-action@master
-      with:
-        command: run
-        jenkinsfile: Jenkinsfile
+    # - name: "print java info"
+    #   run: env | grep JAVA_HOME
+
+    # - name: "run Jenkinsfile"
+    #   uses: jenkinsci/jfr-runtime-action@master
+    #   with:
+    #     command: run
+    #     jenkinsfile: Jenkinsfile
+
 
     # - name: jenkinsfile-runner-prepackaged
-    #   # uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
-    #   uses: jenkinsci/jenkinsfile-runner-github-actions/jenkinsfile-runner-prepackaged@master
+    #   uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
+    # uses: jenkinsci/jenkinsfile-runner-github-actions/jenkinsfile-runner-prepackaged@master
     #   # env:
     #   #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
